@@ -1,0 +1,7 @@
+ipywidgets
+ipycanvas
+math
+datetime
+xnat
+csv
+webbrowser
