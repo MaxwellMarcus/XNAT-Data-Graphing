@@ -1,10 +1,10 @@
 from ipywidgets import *
 from ipycanvas import Canvas
+import IPython
 from math import pi
 import datetime
 import xnat
 import csv
-import webbrowser
 
 class Scanner:
     def __init__(self, num):
@@ -247,7 +247,9 @@ class Graph:
             for point in line.screen_points:
                 if abs(self.mousex - point.x) < 10 and abs(self.mousey - point.y) < 10:
                     if self.get_link:
-                        webbrowser.open_new_tab(self.get_link(point.name))
+                        display(IPython.display.Javascript('''
+                            window.location.replace({url})
+                        ''')).format(url = self.get_link(point.name))
                         self.canvas.clear_rect(0, 0, self.canvas.width, self.canvas.height)
                         self.show()
 
