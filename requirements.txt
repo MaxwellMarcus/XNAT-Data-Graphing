@@ -1,3 +1,4 @@
 ipywidgets
 ipycanvas
 xnat
+webbrowser
